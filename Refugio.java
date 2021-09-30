@@ -20,14 +20,14 @@ public class Refugio{
         
         System.out.println("Indique que tipo de animal va a entrar en el refugio");
         System.out.println("1.Perro");
-        System.out.println("1.Gato");
+        System.out.println("2.Gato");
         System.out.println("Opcion");
         opcion= entrada.nextInt();
         
         switch (opcion){
             case 1 -> entra_perro(); //LLenar Perro
             case 2 -> entra_gato();//Llenar Gato
-            default -> System.out.println("Opción incorrecta");
+            default -> System.out.println("Opcion incorrecta");
         }
     }
 
@@ -43,15 +43,13 @@ public class Refugio{
         edad=entrada.nextInt();
         System.out.println("Introduzca la raza del perro");
         raza_perro= entrada.next();
-        System.out.println("Introduzca la especie");
-        especie= entrada.next();
         
-        Perro perro = new Perro (raza_perro,nombre,edad,especie);
+        Perro perro = new Perro (raza_perro,nombre,edad);
         
         animales.add(perro);
     }
     
-        public void entra_gato(){
+     public void entra_gato(){
         String nombre;
         int edad;
         String raza_gato;
@@ -64,42 +62,36 @@ public class Refugio{
         edad=entrada.nextInt();
         System.out.println("Introduzca la raza del gato");
         raza_gato= entrada.next();
-        System.out.println("Introduzca la especie");
-        especie= entrada.next();
         
-        Gato gato = new Gato (raza_gato,nombre, edad,especie);
+        Gato gato = new Gato (raza_gato,nombre, edad);
         
         animales.add(gato);
     }
     
     public void MostrarRefugio (){
+        if(animales.isEmpty()){
+            System.out.println("No hay animales en el refugio");
+        }
+        
         for(Animal ani : animales){
             System.out.println(ani.nombre());
-            if(animales.isEmpty()){
-                System.out.println("No hay animales en el refugio");
-            }
         }
     }
    
     public void Adopta_animal (){
         
-        animales.poll();
-        System.out.println("Un animal ha sido adoptado");
-        MostrarRefugio();
+        Animal a = animales.poll();
+        System.out.println("Un animal ha sido adoptado " + a.nombre());
     }
     
     public void Adopta_perro(){
-        
-     for (int i=0;i<animales.size();i++){
-         if ("perro".equals(animales.get(i).getEspecie()));{
-         System.out.println("El perro mas antiguo es "+animales.get(i).getNombre());
-        
-     }break;   
-     }
-     
-     
-     
-     
+            
+    	for(Animal aux: this.animales) {
+			 if(aux.getEspecie().equals("perro")) {
+				 this.animales.removeFirstOccurrence(aux);
+				 System.out.println("El " + aux.nombre() + " ha sido adoptado");
+			 }
+		 }   
      
     }
     

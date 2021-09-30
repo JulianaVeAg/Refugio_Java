@@ -29,8 +29,6 @@ public abstract class  Animal {
         return especie;
     }
 
-    
-
     public abstract String nombre();
    
     

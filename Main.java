@@ -10,43 +10,36 @@ public class Main {
     
     public static void main ( String [] args){
         
-    Refugio peludos= new Refugio();
-    Scanner entrada = new Scanner (System.in);
-    char opcion;
- 
-    
-    do{
-        peludos.entra_animal();
-        System.out.println("Desea dejar algún animal más");
-        opcion= entrada.next().charAt(0);
-    }while(opcion == 's' || opcion== 'S');
-   
-  
-
-   
-    peludos.MostrarRefugio();
-    System.out.println("---------------");
-    peludos.Adopta_animal();
-    
-    System.out.println("---------------");
-    peludos.Adopta_perro();
-   
-    
-    
-
- 
-  
-    
-    
-    
-    
+	    Refugio peludos= new Refugio();
+	    peludos.MostrarRefugio();
+	    
+	    Scanner entrada = new Scanner (System.in);
+	    char opcion;
+	 
+	    
+	    do{
+	        peludos.entra_animal();
+	        System.out.println("Desea dejar algun animal mas");
+	        opcion= entrada.next().charAt(0);
+	    }while(opcion == 's' || opcion== 'S');
+	   
+	  
+	
+	   
+	    peludos.MostrarRefugio();
+	    System.out.println("---------------");
+	    peludos.Adopta_animal();
+	    
+	    peludos.MostrarRefugio();
+	    
+	    System.out.println("---------------");
+	    peludos.Adopta_perro();
+	   
+	    
+	    peludos.MostrarRefugio();
         
         
         
-    }
-
-    private static void entra_animal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
   
