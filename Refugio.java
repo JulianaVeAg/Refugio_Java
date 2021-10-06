@@ -45,8 +45,21 @@ public class Refugio{
         raza_perro= entrada.next();
         
         Perro perro = new Perro (raza_perro,nombre,edad);
-        
+               
         animales.add(perro);
+        
+        this.addVacunasEsencialesPerros(perro);
+        
+        perro.imprimirHistorialVacunacion();
+        
+    }
+     
+    public void addVacunasEsencialesPerros(Perro aux) {
+    	for(VacunaPerro vacuna: VacunaPerro.values()) {
+    		if(vacuna.esEsencial()) {
+    			aux.addVacuna(vacuna);
+    		}
+    	}
     }
     
      public void entra_gato(){
@@ -82,6 +95,7 @@ public class Refugio{
         
         Animal a = animales.poll();
         System.out.println("Un animal ha sido adoptado " + a.nombre());
+        a.imprimirHistorialVacunacion();
     }
     
     public void Adopta_perro(){
@@ -90,6 +104,7 @@ public class Refugio{
 			 if(aux.getEspecie().equals("perro")) {
 				 this.animales.removeFirstOccurrence(aux);
 				 System.out.println("El " + aux.nombre() + " ha sido adoptado");
+				 break;
 			 }
 		 }   
      
